@@ -1,5 +1,8 @@
 # MongoSample
 
+###### Description:
+This project is to practice MongoDB capabilities in .net core
+
 ## Architecture
 
 ###### Back End
@@ -14,3 +17,9 @@
 
 ###### Front End
 1. Angular
+
+###### Future
+1. Automation Test
+2. OData
+3. Swager
+4. Solution for indexing
