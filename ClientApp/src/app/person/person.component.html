@@ -1,0 +1,25 @@
+<h1 id="tableLabel">Person detail information</h1>
+
+<p>This component fetching data of one person.</p>
+
+<p *ngIf="!personForm"><em>Loading...</em></p>
+
+<form [formGroup]="personForm" (ngSubmit)="onSubmit()" *ngIf="personForm">
+
+  <div>
+    <label for="name">
+      Name
+    </label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label for="family">
+      Family
+    </label>
+    <input id="family" type="text" formControlName="family">
+  </div>
+
+  <button class="button" type="submit">Save</button>
+
+</form>

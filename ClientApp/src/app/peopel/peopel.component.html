@@ -1,0 +1,23 @@
+<h1 id="tableLabel">Peopel information</h1>
+
+<p>This component fetching list of peopel.</p>
+
+<p *ngIf="!peopel"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="peopel">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Family</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of peopel">
+      <td>{{ person.id }}</td>
+      <td>{{ person.name }}</td>
+      <td>{{ person.family }}</td>
+      <td><a [routerLink]="['/person-component', person.id]">Details</a></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,46 @@
+using MongoSample.Infrasructure.Contracts;
+using MongoSample.Infrasructure.Data;
+using MongoSample.Infrasructure.Repositories;
+using MediatR;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Configuration.AddJsonFile("appsettings.json");
+
+builder.Services.AddOptions<ConnectionSettings>()
+    .Bind(builder.Configuration.GetSection("ConnectionStrings"));
+
+// Add services to the container.
+
+//builder.Services.AddControllersWithViews();
+
+builder.Services.AddControllers();
+
+builder.Services.AddScoped<IMongoContext, MongoContext>();
+builder.Services.AddScoped<IPersonRepository, PersonRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+builder.Services.AddAutoMapper(typeof(Program).Assembly);
+builder.Services.AddMediatR(typeof(Program).Assembly);
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller}/{action=Index}/{id?}");
+
+app.MapFallbackToFile("index.html"); ;
+
+app.Run();
