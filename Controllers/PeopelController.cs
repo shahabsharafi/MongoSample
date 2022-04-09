@@ -46,5 +46,13 @@ namespace MongoSample.Controllers
             return Ok();
 
         }
+
+        [HttpPost("delete")]
+        public async Task<ActionResult> Post(DeletePersonCommand request, CancellationToken cancellationToken = default)
+        {
+            await _mediator.Send(request, cancellationToken);
+            return Ok();
+
+        }
     }
 }
