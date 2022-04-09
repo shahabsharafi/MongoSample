@@ -13,4 +13,14 @@ code {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+  padding: 5pt;
+  margin-right: 2pt;
+}
+
+.btn-cw {
+  min-width: 150pt;
+}
+
+.btn-search {
+  min-width: 30pt;
 }

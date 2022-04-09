@@ -8,8 +8,12 @@ export class PersonService {
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {    
   }
 
-  public getAll(): Promise<Person[]> {
-    return this.http.get<Person[]>(this.baseUrl + 'peopel/all').toPromise();
+  public getAll(filter: string = ''): Promise<Person[]> {
+    if (filter == '') {
+      return this.http.get<Person[]>(this.baseUrl + 'peopel/all').toPromise();
+    } else {
+      return this.http.get<Person[]>(this.baseUrl + 'peopel/all', { params: { $filter: filter } }).toPromise();
+    }
   }
 
   public getDetails(id: string): Promise<Person> {
@@ -23,10 +27,14 @@ export class PersonService {
   public update(body: Person): Promise<Object> {
     return this.http.post<Object>(this.baseUrl + 'peopel/update', body).toPromise();
   }
+
+  public delete(id: string): Promise<Object> {
+    return this.http.post<Object>(this.baseUrl + 'peopel/delete', { "Id": id }).toPromise();
+  }
 }
 
-export interface Person {
-  id: string;
-  name: number;
-  family: number;
+export class Person {
+  id: string = '';
+  name: string = '';
+  family: string = '';
 }

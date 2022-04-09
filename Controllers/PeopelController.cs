@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
 using MongoSample.Domains.EmployeeDomain;
 using MongoSample.Domains.EmployeeDomain.Models;
 using MongoSample.Infrasructure;
@@ -18,6 +19,7 @@ namespace MongoSample.Controllers
         }
 
         [HttpGet("all")]
+        [EnableQuery]
         public async Task<IQueryable<PersonDto>> Get()
         {
             return await _mediator.Send(new GetAllPeopelQuery());            

@@ -1,23 +1,39 @@
-<h1 id="tableLabel">Peopel information</h1>
+<h1 id="tableLabel">Peopel List</h1>
 
 <p>This component fetching list of peopel.</p>
 
 <p *ngIf="!peopel"><em>Loading...</em></p>
-
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="peopel">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Family</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let person of peopel">
-      <td>{{ person.id }}</td>
-      <td>{{ person.name }}</td>
-      <td>{{ person.family }}</td>
-      <td><a [routerLink]="['/person-component', person.id]">Details</a></td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="peopel">
+  <button type="button" class="btn btn-primary btn-cw" (click)="onAdd()">Add</button>
+  <table class='table table-striped' aria-labelledby="tableLabel">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Family</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <th></th>
+        <th><input id="name" type="text" class="form-control" [(ngModel)]="name" placeholder="name"></th>
+        <th><input id="family" type="text" class="form-control" [(ngModel)]="family" placeholder="family"></th>
+        <th></th>
+        <th>
+          <button type="button" class="btn btn-primary btn-search" (click)="onSearch()">
+            <i class="fa fa-search"></i>
+          </button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of peopel">
+        <td>{{ person.id }}</td>
+        <td>{{ person.name }}</td>
+        <td>{{ person.family }}</td>
+        <td><a [routerLink]="['/person-component', person.id]">Edit</a></td>
+        <td><a [routerLink]="" (click)="onDelete(person.id)">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

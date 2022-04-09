@@ -2,6 +2,7 @@ using MongoSample.Infrasructure.Contracts;
 using MongoSample.Infrasructure.Data;
 using MongoSample.Infrasructure.Repositories;
 using MediatR;
+using Microsoft.AspNetCore.OData;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,8 @@ builder.Configuration.AddJsonFile("appsettings.json");
 
 builder.Services.AddOptions<ConnectionSettings>()
     .Bind(builder.Configuration.GetSection("ConnectionStrings"));
+
+builder.Services.AddControllers().AddOData(options => options.Select().Expand().Filter().OrderBy().Count());
 
 // Add services to the container.
 

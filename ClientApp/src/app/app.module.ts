@@ -24,6 +24,7 @@ import { PersonService } from './person.service';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: PeopelComponent, pathMatch: 'full' },
+      { path: 'person-component', component: PersonComponent, pathMatch: 'full' },
       { path: 'person-component/:id', component: PersonComponent, pathMatch: 'full' }
     ])
   ],
