@@ -13,13 +13,13 @@ This project is to practice MongoDB capabilities in .net core
 6. Unit of work pattern
 7. Mediator pattern (MediatoR)
 8. Web Api
-9. Docker
+9. OData
+10. Docker
 
 ###### Front End
 1. Angular
 
 ###### Future
 1. Automation Test
-2. OData
-3. Swager
-4. Solution for indexing
+2. Swager
+3. Solution for indexing
