@@ -11,26 +11,27 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="11.0.1" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
-    <PackageReference Include="MediatR" Version="10.0.1" />
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.OData" Version="8.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="6.0.1" />
-    <PackageReference Include="MongoDB.Driver" Version="2.15.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Compile Remove="Domains\**" />
+    <Compile Remove="Infrasructure\**" />
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="Domains\**" />
+    <Content Remove="Infrasructure\**" />
+    <EmbeddedResource Remove="Domains\**" />
+    <EmbeddedResource Remove="Infrasructure\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove="Domains\**" />
+    <None Remove="Infrasructure\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Infrasructure\Data\ApplicationDbContext.cs" />
-    <Compile Remove="Infrasructure\Data\Repository.cs" />
+    <ProjectReference Include="..\MongoSample.Domain\MongoSample.Domain.csproj" />
   </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

@@ -1,8 +1,10 @@
 using MongoSample.Infrasructure.Contracts;
 using MongoSample.Infrasructure.Data;
-using MongoSample.Infrasructure.Repositories;
 using MediatR;
 using Microsoft.AspNetCore.OData;
+using MongoSample.Domain.Infrasructure.Contracts;
+using MongoSample.Domain.Infrasructure.Repositories;
+using MongoSample.Domain;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,8 +25,7 @@ builder.Services.AddScoped<IMongoContext, MongoContext>();
 builder.Services.AddScoped<IPersonRepository, PersonRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-builder.Services.AddAutoMapper(typeof(Program).Assembly);
-builder.Services.AddMediatR(typeof(Program).Assembly);
+builder.Services.AddDomain();
 
 var app = builder.Build();
 

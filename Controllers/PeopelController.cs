@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
-using MongoSample.Domains.EmployeeDomain;
-using MongoSample.Domains.EmployeeDomain.Models;
+using MongoSample.Domain;
+using MongoSample.Domain.Models;
 using MongoSample.Infrasructure;
 
 namespace MongoSample.Controllers
