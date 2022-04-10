@@ -1,6 +1,7 @@
-﻿using MongoSample.Infrasructure.Contracts;
+﻿using MongoSample.Domain.Infrasructure.Contracts;
+using MongoSample.Infrasructure.Contracts;
 
-namespace MongoSample.Infrasructure.Repositories
+namespace MongoSample.Domain.Infrasructure.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {

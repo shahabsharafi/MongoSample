@@ -3,7 +3,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 
-namespace MongoSample.Domains.EmployeeDomain.Models
+namespace MongoSample.Domain.Models
 {
     public class Person : IEntity
     {

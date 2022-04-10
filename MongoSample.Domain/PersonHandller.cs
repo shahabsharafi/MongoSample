@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using MediatR;
-using MongoSample.Domains.EmployeeDomain.Models;
-using MongoSample.Infrasructure.Contracts;
+using MongoSample.Domain.Infrasructure.Contracts;
+using MongoSample.Domain.Models;
 
-namespace MongoSample.Domains.EmployeeDomain
+namespace MongoSample.Domain
 {    
     public class GetAllPeopelQuery : IRequest<IQueryable<PersonDto>> { }
     public class GetOnePersonQuery : IRequest<PersonDto> 

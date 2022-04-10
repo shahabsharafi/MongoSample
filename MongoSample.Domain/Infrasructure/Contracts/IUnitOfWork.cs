@@ -1,4 +1,4 @@
-﻿namespace MongoSample.Infrasructure.Contracts
+﻿namespace MongoSample.Domain.Infrasructure.Contracts
 {
     public interface IUnitOfWork : IDisposable
     {

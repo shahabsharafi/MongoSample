@@ -6,7 +6,7 @@ using MongoSample.Domain;
 using MongoSample.Domain.Models;
 using MongoSample.Infrasructure;
 
-namespace MongoSample.Controllers
+namespace MongoSample.UI.Controllers
 {
     [Route("[controller]")]
     [ApiController]

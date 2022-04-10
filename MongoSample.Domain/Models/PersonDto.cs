@@ -1,4 +1,4 @@
-﻿namespace MongoSample.Domains.EmployeeDomain.Models
+﻿namespace MongoSample.Domain.Models
 {
     public class PersonDto
     {
