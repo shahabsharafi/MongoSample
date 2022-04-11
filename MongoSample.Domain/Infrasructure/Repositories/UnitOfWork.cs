@@ -1,5 +1,5 @@
 ﻿using MongoSample.Domain.Infrasructure.Contracts;
-using MongoSample.Infrasructure.Contracts;
+using MongoSample.Infrastructure.Contracts;
 
 namespace MongoSample.Domain.Infrasructure.Repositories
 {

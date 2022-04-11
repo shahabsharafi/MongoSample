@@ -1,9 +1,9 @@
 ﻿
 using Microsoft.Extensions.Options;
-using MongoSample.Infrasructure.Contracts;
+using MongoSample.Infrastructure.Contracts;
 using MongoDB.Driver;
 
-namespace MongoSample.Infrasructure.Data
+namespace MongoSample.Infrastructure.Data
 {
     public class MongoContext : IMongoContext
     {

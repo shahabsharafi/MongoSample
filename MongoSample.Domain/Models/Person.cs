@@ -1,4 +1,4 @@
-﻿using MongoSample.Infrasructure.Contracts;
+﻿using MongoSample.Infrastructure.Contracts;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;

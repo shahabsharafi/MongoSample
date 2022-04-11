@@ -16,10 +16,7 @@ This project is to practice MongoDB capabilities in .net core
 8. OData
 9. Docker
 10. Automation Test
+11. Solution for indexing
 
 ###### Front End
 1. Angular
-
-###### Future
-1. Swager
-2. Solution for indexing

@@ -1,9 +1,9 @@
 ﻿using MongoSample.Domain.Models;
-using MongoSample.Infrasructure.Contracts;
+using MongoSample.Infrastructure.Contracts;
 
 namespace MongoSample.Domain.Infrasructure.Contracts
 { 
-    public interface IPersonRepository : IRepository<Person>
+    public interface IPersonRepository : IMongoDBRepository<Person>
     {
     }
 }

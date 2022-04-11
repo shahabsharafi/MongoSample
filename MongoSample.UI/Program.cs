@@ -1,10 +1,7 @@
-using MongoSample.Infrasructure.Contracts;
-using MongoSample.Infrasructure.Data;
-using MediatR;
+using MongoSample.Infrastructure.Data;
 using Microsoft.AspNetCore.OData;
-using MongoSample.Domain.Infrasructure.Contracts;
-using MongoSample.Domain.Infrasructure.Repositories;
 using MongoSample.Domain;
+using MongoSample.UI;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,17 +10,17 @@ builder.Configuration.AddJsonFile("appsettings.json");
 builder.Services.AddOptions<ConnectionSettings>()
     .Bind(builder.Configuration.GetSection("ConnectionStrings"));
 
-builder.Services.AddControllers().AddOData(options => options.Select().Expand().Filter().OrderBy().Count());
+builder.Services.AddControllers().AddOData(options => options
+    .Select().Expand().Filter().OrderBy().Count()
+    .AddRouteComponents(ODataRoute.RoutePrefix, ODataRoute.GetEdmModel()));
 
 // Add services to the container.
 
 //builder.Services.AddControllersWithViews();
 
-builder.Services.AddControllers();
+builder.Services.AddMemoryCache();
 
-builder.Services.AddScoped<IMongoContext, MongoContext>();
-builder.Services.AddScoped<IPersonRepository, PersonRepository>();
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddControllers();
 
 builder.Services.AddDomain();
 

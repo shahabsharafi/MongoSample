@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 
-namespace MongoSample.Infrasructure.Contracts
+namespace MongoSample.Infrastructure.Contracts
 {
     public interface IMongoContext : IDisposable
     {

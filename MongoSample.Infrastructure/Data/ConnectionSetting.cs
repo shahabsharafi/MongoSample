@@ -1,4 +1,4 @@
-﻿namespace MongoSample.Infrasructure.Data
+﻿namespace MongoSample.Infrastructure.Data
 {
     public class ConnectionSettings
     {

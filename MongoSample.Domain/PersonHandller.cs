@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using FluentValidation;
 using MediatR;
 using MongoSample.Domain.Infrasructure.Contracts;
 using MongoSample.Domain.Models;
@@ -12,9 +13,32 @@ namespace MongoSample.Domain
         public string Id { get; set; } = string.Empty;
     }
     public class AddPersonCommand : PersonModel, IRequest { }
+    public class AddPersonCommandValidator : AbstractValidator<AddPersonCommand>
+    {
+        public AddPersonCommandValidator()
+        {
+            RuleFor(x => x.Name).NotEmpty()
+                .WithMessage("Name is required.");
+
+            RuleFor(x => x.Family).NotEmpty()
+                .WithMessage("Family is required.");
+        }
+    }
     public class UpdatePersonCommand : PersonModel, IRequest
     {
         public string Id { get; set; } = string.Empty;
+    }
+
+    public class UpdatePersonCommandValidator : AbstractValidator<UpdatePersonCommand>
+    {
+        public UpdatePersonCommandValidator()
+        {
+            RuleFor(x => x.Name).NotEmpty()
+                .WithMessage("Name is required.");
+
+            RuleFor(x => x.Family).NotEmpty()
+                .WithMessage("Family is required.");
+        }
     }
 
     public class DeletePersonCommand : IRequest

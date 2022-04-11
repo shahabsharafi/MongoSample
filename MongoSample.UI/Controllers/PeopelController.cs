@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
 using MongoSample.Domain;
 using MongoSample.Domain.Models;
-using MongoSample.Infrasructure;
+using MongoSample.Infrastructure;
 
 namespace MongoSample.UI.Controllers
 {
@@ -19,7 +19,7 @@ namespace MongoSample.UI.Controllers
         }
 
         [HttpGet("all")]
-        [EnableQuery]
+        [CustomEnableQuery]
         public async Task<IQueryable<PersonDto>> Get()
         {
             return await _mediator.Send(new GetAllPeopelQuery());            
